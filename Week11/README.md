@@ -46,6 +46,11 @@ services:
     image: apache/spark:3.5.1
     container_name: spark-master
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    ports:
+      - "8081:8080"
+      - "7077:7077"
+    volumes:
+      - ./apps/opt/spark/apps
     networks:
       - spark-network
 
