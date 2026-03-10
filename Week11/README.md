@@ -247,9 +247,9 @@ docker-compose up -d
 รันคำสั่งนี้ใน Terminal:
 
 ```
-docker exec -it spark-master spark-submit \
+docker exec -it spark-master /opt/spark/bin/spark-submit \
   --master spark://spark-master:7077 \
-  /opt/bitnami/spark/apps/spark_processor.py
+  /opt/spark/apps/spark_processor.py
 ```
 
 #### 4. Monitor Output & Dashboard
