@@ -46,8 +46,6 @@ services:
     image: apache/spark:3.5.1
     container_name: spark-master
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    depends_on:
-      - spark-master
     networks:
       - spark-network
 
