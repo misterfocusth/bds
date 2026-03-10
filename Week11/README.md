@@ -45,7 +45,7 @@ services:
   spark-master:
     image: apache/spark:3.5.1
     container_name: spark-master
-    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
     ports:
       - "8081:8080"
       - "7077:7077"
