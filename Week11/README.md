@@ -45,7 +45,7 @@ services:
   spark-master:
     image: apache/spark:3.5.1
     container_name: spark-master
-    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
@@ -55,7 +55,7 @@ services:
   spark-worker-1:
     image: apache/spark:3.5.1
     container_name: spark-worker-1
-    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
@@ -64,7 +64,7 @@ services:
   spark-worker-2:
     image: apache/spark:3.5.1
     container_name: spark-worker-2
-    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
@@ -73,7 +73,7 @@ services:
   spark-worker-3:
     image: apache/spark:3.5.1
     container_name: spark-worker-3
-    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
