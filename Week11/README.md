@@ -45,38 +45,39 @@ services:
   spark-master:
     image: apache/spark:3.5.1
     container_name: spark-master
-    ports:
-      - "8080:8080"  # Spark Master Web UI
-      - "7077:7077"  # Spark Master Port
-    volumes:
-      - ./apps:/opt/bitnami/spark/apps # Map โค้ดของเราเข้าไป
+    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
     networks:
-      - spark-network
+      - spark-netmork
 
   # --- 2. Spark Workers (3 Nodes) ---
   spark-worker-1:
     image: apache/spark:3.5.1
     container_name: spark-worker-1
+    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
-      - spark-network
+      - spark-netmork
 
   spark-worker-2:
     image: apache/spark:3.5.1
     container_name: spark-worker-2
+    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
-      - spark-network
+      - spark-netmork
 
   spark-worker-3:
     image: apache/spark:3.5.1
     container_name: spark-worker-3
+    conmand: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     depends_on:
       - spark-master
     networks:
-      - spark-network
+      - spark-netmork
 
   # --- 3. Data Generator (Fake Social Media Stream) ---
   data-generator:
