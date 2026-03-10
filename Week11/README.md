@@ -50,7 +50,7 @@ services:
       - "8081:8080"
       - "7077:7077"
     volumes:
-      - ./apps/opt/spark/apps
+      - ./apps:/opt/spark/apps
     networks:
       - spark-network
 
