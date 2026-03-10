@@ -49,7 +49,7 @@ services:
     depends_on:
       - spark-master
     networks:
-      - spark-netmork
+      - spark-network
 
   # --- 2. Spark Workers (3 Nodes) ---
   spark-worker-1:
@@ -59,7 +59,7 @@ services:
     depends_on:
       - spark-master
     networks:
-      - spark-netmork
+      - spark-network
 
   spark-worker-2:
     image: apache/spark:3.5.1
@@ -68,7 +68,7 @@ services:
     depends_on:
       - spark-master
     networks:
-      - spark-netmork
+      - spark-network
 
   spark-worker-3:
     image: apache/spark:3.5.1
@@ -77,7 +77,7 @@ services:
     depends_on:
       - spark-master
     networks:
-      - spark-netmork
+      - spark-network
 
   # --- 3. Data Generator (Fake Social Media Stream) ---
   data-generator:
