@@ -43,7 +43,7 @@ mkdir apps
 services:
   # --- 1. Spark Master (Driver/Cluster Manager) ---
   spark-master:
-    image: bitnamilegacy/spark:3.5
+    image: apache/spark:3.5.1
     container_name: spark-master
     environment:
       - SPARK_MODE=master
@@ -61,7 +61,7 @@ services:
 
   # --- 2. Spark Workers (3 Nodes) ---
   spark-worker-1:
-    image: bitnamilegacy/spark:3.5
+    image: apache/spark:3.5.1
     container_name: spark-worker-1
     environment:
       - SPARK_MODE=worker
@@ -78,7 +78,7 @@ services:
       - spark-network
 
   spark-worker-2:
-    image: bitnamilegacy/spark:3.5
+    image: apache/spark:3.5.1
     container_name: spark-worker-2
     environment:
       - SPARK_MODE=worker
@@ -95,7 +95,7 @@ services:
       - spark-network
 
   spark-worker-3:
-    image: bitnamilegacy/spark:3.5
+    image: apache/spark:3.5.1
     container_name: spark-worker-3
     environment:
       - SPARK_MODE=worker
